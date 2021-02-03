@@ -5,6 +5,7 @@ defmodule ChatServerWeb.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
+    plug :fetch_flash
     plug :fetch_live_flash
     plug :put_root_layout, {ChatServerWeb.LayoutView, :root}
     plug :protect_from_forgery
@@ -27,9 +28,10 @@ defmodule ChatServerWeb.Router do
   end
 
   scope "/", ChatServerWeb do
-    pipe_through [:browser, :protected]
+    pipe_through [:browser]
 
     live "/", PageLive, :index
+    live "/conversations/:conversation_id/users/:user_id", ConversationLive
   end
 
   # Other scopes may use custom stacks.
