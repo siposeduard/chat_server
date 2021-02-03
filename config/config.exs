@@ -7,6 +7,10 @@
 # General application configuration
 use Mix.Config
 
+config :chat_server, :pow,
+  user: ChatServer.Users.User,
+  repo: ChatServer.Repo
+
 config :chat_server,
   ecto_repos: [ChatServer.Repo]
 
