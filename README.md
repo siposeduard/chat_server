@@ -3,6 +3,7 @@
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
+  * ./scripts/storage.sh up -d` - this starts postgres inside docker
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
   * Start Phoenix endpoint with `mix phx.server`
