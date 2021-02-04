@@ -8,8 +8,9 @@
 use Mix.Config
 
 config :chat_server, :pow,
-  user: ChatServer.Users.User,
-  repo: ChatServer.Repo
+  user: ChatServer.Auth.User,
+  repo: ChatServer.Repo,
+  web_module: ChatServerWeb
 
 config :chat_server,
   ecto_repos: [ChatServer.Repo]
@@ -20,7 +21,9 @@ config :chat_server, ChatServerWeb.Endpoint,
   secret_key_base: "huX+XJQCHpQsnFkZO9CvMmndY+Ud7+gnHl95EtwxE5V3JoNwBpuhMWejBrCoUzfg",
   render_errors: [view: ChatServerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: ChatServer.PubSub,
-  live_view: [signing_salt: "6xmYemYw"]
+  live_view: [
+    signing_salt: "6xmYemYw"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,

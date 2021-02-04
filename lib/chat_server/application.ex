@@ -12,11 +12,12 @@ defmodule ChatServer.Application do
       # Start the Telemetry supervisor
       ChatServerWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: ChatServer.PubSub},
+      {Phoenix.PubSub, [name: ChatServer.PubSub, adapter: Phoenix.PubSub.PG2]},
       # Start the Endpoint (http/https)
-      ChatServerWeb.Endpoint
+      ChatServerWeb.Endpoint,
       # Start a worker by calling: ChatServer.Worker.start_link(arg)
       # {ChatServer.Worker, arg}
+      Pow.Store.Backend.MnesiaCache
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

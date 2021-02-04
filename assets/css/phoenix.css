@@ -17,6 +17,11 @@ h5{font-size: 1.6rem; letter-spacing: 0; line-height: 1.4}
 h6{font-size: 1.4rem; letter-spacing: 0; line-height: 1.2}
 pre{padding: 1em;}
 
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
 .container{
   margin: 0 auto;
   max-width: 80.0rem;

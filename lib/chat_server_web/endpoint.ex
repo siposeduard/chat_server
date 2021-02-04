@@ -50,6 +50,6 @@ defmodule ChatServerWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug Pow.Plug.Session, otp_app: :chat_server
+  plug Pow.Plug.Session, otp_app: :chat_server, cache_store_backend: Pow.Store.Backend.MnesiaCache
   plug ChatServerWeb.Router
 end
