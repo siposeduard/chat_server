@@ -8,8 +8,9 @@
 use Mix.Config
 
 config :chat_server, :pow,
-  user: ChatServer.Users.User,
-  repo: ChatServer.Repo
+  user: ChatServer.Auth.User,
+  repo: ChatServer.Repo,
+  web_module: ChatServerWeb
 
 config :chat_server,
   ecto_repos: [ChatServer.Repo]
